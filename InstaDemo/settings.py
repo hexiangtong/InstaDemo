@@ -120,3 +120,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+LOGIN_REDIRECT_URL = 'posts' #如果登陆成功跳转到 posts url
+
+LOGOUT_REDIRECT_URL = 'posts' 
+
+AUTH_USER_MODEL = 'Insta.InstaUser'  # 替换成自定义的model
