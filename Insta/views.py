@@ -7,14 +7,14 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import AbstractUser
 
 
-from django.views.generic import TemplateView, ListView, DetailView
+from django.views.generic import ListView, DetailView
 from django.views.generic.edit import FormView, CreateView, UpdateView, DeleteView
 
 
 from Insta.models import Post
 
-class HelloDjango(TemplateView):
-    template_name = 'home.html'
+# class HelloDjango(TemplateView):
+#     template_name = '.html'
 
 # Create your views here.
 
@@ -26,8 +26,7 @@ class PostDetailView(DetailView):
     model = Post
     template_name = 'post_detail.html'
 
-class PostCreateView(CreateView, LoginRequiredMixin
-):  # createview pass 
+class PostCreateView(CreateView, LoginRequiredMixin):  # createview pass 
     model = Post
     template_name = 'post_create.html'
     fields = '__all__'

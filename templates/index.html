@@ -1,4 +1,34 @@
-{% load static %}
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="cards-listing">
+    {% for post in object_list %}     <!-- 遍历 每一个object list -->
+        <div class="row">        
+            <div class="card view-update {{ post.pk }}">
+                <div class="card__panel-head">
+                    <div class="poster__info">
+                        <a href="{% url 'profile' post.author.pk %}" class="poster__name">
+                            {% if post.author.profile_pic %}
+                                <img class="poster__profilepic" src="{{ post.author.profile_pic.url }}">
+                            {% endif %}
+                            {{ post.author.username }}
+                        </a>
+
+                    </div>
+                </div>
+                <a href="{% url 'post_detail' post.pk %}">
+                    <img class="card__main-image" src="{{ post.image.url }}">
+                </a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}
+
+
+<!-- {% load static %}
 
 <ul>
     {% if request.user.is_authenticated %}
@@ -31,4 +61,4 @@
         </a>
     {% endfor %}
 
-</div>
+</div> -->
